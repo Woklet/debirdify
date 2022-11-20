@@ -29,12 +29,6 @@ source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Database
-
-Create a new database user `debirdify`, a database `debirdify` while also granting all privileges to the user `debirdify`.
-
-TODO: initialisation of database
-
 ### Configuration
 
 Environment variables being used are:
@@ -45,7 +39,15 @@ Environment variables being used are:
   - `DEBIRDIFY_DEBUG` (0 or 1): whether Django should run in debug mode (absolutely switch this off for production use)
 
 In Apache, you can, for example, set them using `SetVar` in your webserver configuration.
+
 For Nginx, you can, for example, set them by using uWSGI, adding the environment variables in an uWSGI init file.
+
+### Database
+
+Create a new database user `debirdify`, a database `debirdify` while also granting all privileges to the user `debirdify`.
+
+Run the migration to setup database tables:
+```python manage.py migrate```
 
 ### Running
 
